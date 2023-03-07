@@ -1,12 +1,9 @@
-var jwt = require('jsonwebtoken');
-const JWT_SECRET = 'Abhayisagoodb$oy';
-
-
+const jwt = require('jsonwebtoken');
+const JWT_SECRET = "abhayisagoodboy";
 const fetchuser = (req, res, next)=>{
-    // Get the user from the jwt token and add id to req object
+    // get the user from the jwt token and add id to req object
     const token = req.header('auth-token');
-    if(!token)
-    {
+    if(!token){
         res.status(401).send({error: "Please authenticate using a valid token"})
     }
     try {
@@ -16,7 +13,7 @@ const fetchuser = (req, res, next)=>{
     } catch (error) {
         res.status(401).send({error: "Please authenticate using a valid token"})
     }
+    
 }
-
 
 module.exports = fetchuser;
